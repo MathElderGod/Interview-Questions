@@ -1,0 +1,15 @@
+valgrind ./decoder < input1 > memory_leak_check.txt
+==794== Memcheck, a memory error detector
+==794== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==794== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==794== Command: ./decoder
+==794==
+==794==
+==794== HEAP SUMMARY:
+==794==     in use at exit: 0 bytes in 0 blocks
+==794==   total heap usage: 3 allocs, 3 frees, 8,501 bytes allocated
+==794==
+==794== All heap blocks were freed -- no leaks are possible
+==794==
+==794== For lists of detected and suppressed errors, rerun with: -s
+==794== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

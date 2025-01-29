@@ -1,0 +1,19 @@
+Given the following ancient language decoding pattern such that:
+	Input     :     Result
+	-----------------------------------------------
+	*         :     ' ' (space)
+	#         :     ''  (end of letter)
+	0         :     0
+	1         :     1
+	2         :     ABC2
+	3         :     DEF3
+	4         :     GHI4
+	5         :     JKL5
+	6         :     MNO6
+	7         :     PQRS7
+	8         :     TUV8
+	9         :     WXYZ9
+	Example: the message: '44#444#*#8#44#33#777#33#' translates to 'HI THERE'
+Please enter a correctly formatted message to decode: The message you entered was: *#**##0#00##1#11##2#22##222###2222####22222######3#33###333####3333#####33333######4#44###444####4444#####44444######5#55###555####5555#####55555######6#66###666####6666#####66666######7#77###777####7777#####77777#######777777######8#88###888####8888#####88888######9#99###999####9999#####99999#######999999#
+The decoded Message is:   0011ABC2ADEF3DGHI4GJKL5JMNO6MPQRS7PTUV8TWXYZ9W
+Would you like to decode another message? (type 'q' to quit, else type a different char to continue): 
