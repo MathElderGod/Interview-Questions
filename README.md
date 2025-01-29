@@ -1,16 +1,16 @@
 # Interview Questions:
-I solve interview questions that I have encountered throughout my life....
+I solve coding interview questions that I have encountered throughout my life.
 
 Please do not simply clone my solutions and make them your own. 
 
 ### Why does this exist? 
 
-Becuase I would like a place to practice and show my commitment to solving problems
-that I have encountered throughout my job hunting journey. 
+Because I would like a place to practice and show my commitment to solving coding problems
+that I have encountered throughout my job-hunting journey. 
 I am an avid VIM user and an avid lover of the C programming language. I guess I am a _masochist_? 
-I plan on having various implementations with different languages, and plan on having other cool directories involving more than just interviewing questions. 
+I plan on having various implementations in different programming languages and other cool directories. 
 
-Feel free to explore this repository to your hearts content! :)
+Feel free to explore this repository to your heart's content! :)
 
 ## Some funny memes:
 
