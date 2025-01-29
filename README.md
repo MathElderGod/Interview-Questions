@@ -1,2 +1,2 @@
 # Interview-Questions
-I solve interview questions I have encounter throughout my life
+I solve interview questions I have encountered throughout my life....
