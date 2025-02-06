@@ -32,6 +32,21 @@
  * AA → A1 (1 A followed by 1 more A)
  * T → T (appears once, so remains unchanged)
  * C → C (appears once, so remains unchanged)
+ *
+ *
+ * Key Insights after implementation and testing.
+ *
+ * This encoder will definetly save you lots of bytes of memory, freeing up hundreds of thousands of bytes
+ * assuming that the DNA Sequnece has continuous repeating nucleotides. 
+ *
+ * However, this encoder will definetly not do anything for a DNA sequence with strictly unique sequences
+ * meaning strictly no repeats. 
+ *
+ * on the other side, it will also do poorly for files that have very few repeats. 
+ *
+ * I tested it on a file with huge amounts of repeats (214,383 bytes long). and i managed to save a wopping 182,223 bytes of data
+ * as the encoded data came out at a solid 32,160 bytes of data.
+ *
  * */
 
 #include "encode_dna.h"

@@ -1,0 +1,15 @@
+total 628
+-rwxr-xr-x 1 agarias agarias  16352 Feb  5 23:05 decode_dna
+-rw-r--r-- 1 agarias agarias   3904 Feb  5 23:05 decode_dna.c
+-rw-r--r-- 1 agarias agarias    349 Feb  5 20:15 decode_dna.h
+-rw-r--r-- 1 agarias agarias 214383 Feb  5 23:17 decoded_dna_output
+-rw-r--r-- 1 agarias agarias    166 Feb  5 22:30 dna
+-rw-r--r-- 1 agarias agarias   9133 Feb  5 15:21 dna_input
+-rw-r--r-- 1 agarias agarias    296 Feb  5 19:38 dna_input2
+-rwxr-xr-x 1 agarias agarias  16240 Feb  5 22:44 encode_dna
+-rw-r--r-- 1 agarias agarias   3602 Feb  5 22:44 encode_dna.c
+-rw-r--r-- 1 agarias agarias    131 Feb  5 16:28 encode_dna.h
+-rw-r--r-- 1 agarias agarias  32160 Feb  5 23:17 encoded_dna_output
+-rw-r--r-- 1 agarias agarias      0 Feb  5 23:19 encoding_results
+-rw-r--r-- 1 agarias agarias 214383 Feb  5 23:17 huge_dna_repeat
+-rw-r--r-- 1 agarias agarias 102649 Feb  5 23:08 huge_dna_test

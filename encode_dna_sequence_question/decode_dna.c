@@ -81,7 +81,7 @@ void decodeDNASequence(FILE *infilePointer){
 			index++;
 		}
 	}
-	// edge case
+	// edge case, the file ends with some number repition of a nucleotide
 	// terminate some number with the sentinel
 	someNumber[index] = '\0';
 	// convert some number to an int
