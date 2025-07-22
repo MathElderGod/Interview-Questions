@@ -1,0 +1,6 @@
+LowVoltage,HighVoltage,ChipType,Temperature,ProjectName,TestDate
+0.9,1.2,Snapdragon 888,0,Project Alpha,2025-07-01
+0.85,1.15,Snapdragon 888,25,Project Alpha,2025-07-01
+0.88,1.18,Snapdragon 888,40,Project Alpha,2025-07-01
+0.92,1.22,Snapdragon 888,55,Project Alpha,2025-07-01
+0.95,1.25,Snapdragon 888,70,Project Alpha,2025-07-01

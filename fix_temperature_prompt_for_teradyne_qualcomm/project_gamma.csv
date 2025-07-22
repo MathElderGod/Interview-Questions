@@ -1,0 +1,7 @@
+LowVoltage,HighVoltage,ChipType,Temperature,ProjectName,TestDate
+1.0,1.3,Qualcomm AI Chip,15,Project Gamma,2025-05-20
+1.02,1.32,Qualcomm AI Chip,25,Project Gamma,2025-05-20
+1.05,1.35,Qualcomm AI Chip,40,Project Gamma,2025-05-20
+1.08,1.38,Qualcomm AI Chip,55,Project Gamma,2025-05-20
+1.1,1.4,Qualcomm AI Chip,70,Project Gamma,2025-05-20
+

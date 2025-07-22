@@ -1,0 +1,7 @@
+LowVoltage,HighVoltage,ChipType,Temperature,ProjectName,TestDate
+0.95,1.25,Snapdragon 870,-40,Project Beta,2025-06-15
+0.9,1.2,Snapdragon 870,0,Project Beta,2025-06-15
+0.85,1.15,Snapdragon 870,25,Project Beta,2025-06-15
+0.87,1.17,Snapdragon 870,55,Project Beta,2025-06-15
+0.9,1.2,Snapdragon 870,85,Project Beta,2025-06-15
+
