@@ -6,7 +6,8 @@
 
 // ```
 interface ItemStore {
-	interface Item {
+
+    interface Item {
 		String getID();
 		String getTag();
 	}

@@ -1,11 +1,13 @@
+
 /**
-QUESTION 4: Debugging
-----------------
-
-```
-
-package com.moesol.hr.bugs;
-*/
+  *
+  *  QUESTION 4: Debugging
+  * ----------------
+  *
+  * ```
+  *
+  * package com.moesol.hr.bugs;
+  */
 
 public class Bug1 {
     private Integer rating;
@@ -32,25 +34,25 @@ public class Bug1 {
     public static void main(String[] args) {
         System.out.println("rating:" +
             new Bug1().rating());
-	// should print: rating:0
+	    // should print: rating:0
     }
 }
 
 /**
-```
+    ```
 
-The program above throws a `NullPointerException` with this stack trace:
+    The program above throws a `NullPointerException` with this stack trace:
 
-```
-Exception in thread "main" java.lang.NullPointerException
-    at com.moesol.hr.bugs.Bug1.rating(Bug1.java:7)
-    at com.moesol.hr.bugs.Bug1.main(Bug1.java:12)
-```
+    ```
+    Exception in thread "main" java.lang.NullPointerException
+        at com.moesol.hr.bugs.Bug1.rating(Bug1.java:7)
+        at com.moesol.hr.bugs.Bug1.main(Bug1.java:12)
+    ```
 
-What is happening? How can it be fixed?
+    What is happening? How can it be fixed?
 
 
-Answer:
+    Answer:
 
         Well there appears to be a variety of issues. To begin, the default value that
         the wrapper class Integer gives in its void paramater constructor will always be
@@ -61,13 +63,13 @@ Answer:
         the easiest fix is to have a sanity check in rating, that ensures null access is avoided. we check if this.rating is null, and
         if it is, we will return 0. else we will return the actual rating.
 
-	This is the error.
-	Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "this.rating" is null
-        at Bug1.rating(Bug1.java:14)
-        at Bug1.main(Bug1.java:19)
+	    This is the error.
+	    Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "this.rating" is null
+            at Bug1.rating(Bug1.java:14)
+            at Bug1.main(Bug1.java:19)
 
 
-	I have implemented the fix above. and thus, simply get a rating of zero. another thing that can be done is specifying a more in depth constructor,
-	that forces the user to provide an actual integer value, and setting rating to the rating provided in the constructor. the sanity check can be left
-	untouched, and thus will be a more significant fix. 
+	    I have implemented the fix above. and thus, simply get a rating of zero. another thing that can be done is specifying a more in depth constructor,
+	    that forces the user to provide an actual integer value, and setting rating to the rating provided in the constructor. the sanity check can be left
+	    untouched, and thus will be a more significant fix. 
 */

@@ -2,7 +2,9 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * cite: 	https://stackoverflow.com/questions/2594059/removing-all-items-of-a-given-value-from-a-hashmap
+ * cite: 	
+ *      
+ *      https://stackoverflow.com/questions/2594059/removing-all-items-of-a-given-value-from-a-hashmap
  * 		https://docs.oracle.com/javase/8/docs/api/java/util/Map.html
  * 		https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html
  */
@@ -82,7 +84,7 @@ public class BestBuy implements ItemStore {
 		// private instance variables to store id and tag
 		private String id;
 		private String tag;
-
+            
 		/**
 		 * Constructor for best buy items
 		 *
@@ -118,15 +120,15 @@ public class BestBuy implements ItemStore {
 		BestBuy bestBuyStore = new BestBuy();
 		// test the put method from bestbuystore
 		bestBuyStore.put(new BestBuyItem("A123", "Laptop - Dell Inspiron 15"));
-        	bestBuyStore.put(new BestBuyItem("B456", "Smartphone - Samsung Galaxy S23"));
-        	bestBuyStore.put(new BestBuyItem("C789", "Headphones - Sony WH-1000XM5"));
-        	bestBuyStore.put(new BestBuyItem("D012", "Smart TV - LG 65\" OLED"));
-        	bestBuyStore.put(new BestBuyItem("E345", "Gaming Console - PlayStation 5"));
-        	bestBuyStore.put(new BestBuyItem("F678", "Tablet - Apple iPad Pro 11\""));
-        	bestBuyStore.put(new BestBuyItem("G901", "Smartwatch - Apple Watch Series 8"));
-        	bestBuyStore.put(new BestBuyItem("H234", "Camera - Nikon D3500 DSLR"));
-        	bestBuyStore.put(new BestBuyItem("I567", "External Hard Drive - Seagate 2TB"));
-        	bestBuyStore.put(new BestBuyItem("J890", "Bluetooth Speaker - JBL Charge 5"));
+        bestBuyStore.put(new BestBuyItem("B456", "Smartphone - Samsung Galaxy S23"));
+        bestBuyStore.put(new BestBuyItem("C789", "Headphones - Sony WH-1000XM5"));
+        bestBuyStore.put(new BestBuyItem("D012", "Smart TV - LG 65\" OLED"));
+        bestBuyStore.put(new BestBuyItem("E345", "Gaming Console - PlayStation 5"));
+        bestBuyStore.put(new BestBuyItem("F678", "Tablet - Apple iPad Pro 11\""));
+        bestBuyStore.put(new BestBuyItem("G901", "Smartwatch - Apple Watch Series 8"));
+        bestBuyStore.put(new BestBuyItem("H234", "Camera - Nikon D3500 DSLR"));
+        bestBuyStore.put(new BestBuyItem("I567", "External Hard Drive - Seagate 2TB"));
+        bestBuyStore.put(new BestBuyItem("J890", "Bluetooth Speaker - JBL Charge 5"));
 		// should be 10 items
 		System.out.println("The current stock is: " +  bestBuyStore.size());
 		// replace an item
@@ -167,7 +169,7 @@ public class BestBuy implements ItemStore {
 		bestBuyStore.put(new BestBuyItem("J890", "External Hard Drive - Seagate 2TB"));
 		bestBuyStore.dropAllByTag("External Hard Drive - Seagate 2TB");
 		// this should drop a total of 2 items, thus our stock is 0
-                System.out.println("The current stock is: " +  bestBuyStore.size());
+        System.out.println("The current stock is: " +  bestBuyStore.size());
 		// all methods work as intended.
 	}
 }

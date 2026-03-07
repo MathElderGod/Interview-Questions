@@ -34,14 +34,12 @@ public class WrongAnswer {
             doSomeFakeWork();
         }
     }
-
+    
+    // I added the synchronized keyword here.
     private synchronized void doSomeFakeWork() {
         counter++;
     }
 }
-
-
-
 
 /**
  * Answer: 

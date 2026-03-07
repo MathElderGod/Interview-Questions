@@ -78,33 +78,35 @@ public class SmallMemoryMessageTest {
     private static final int MAX_BATCH_SIZE = 5000;
     
     public static void main(String args[]) {
+        
         MessageProcessor processor = Util.createMessageProcessor();
         MessageArchiver archiver = Util.createMessageArchiver();
         List<Message> messages = new ArrayList<>();
-	int messagesProcessed = 0;
+	    int messagesProcessed = 0;
+        
         for (int i = 0; i < Util.EXPECTED_TOTAL; i++) {
             Message msg = Util.random();
             processor.processMessage(msg);
             messages.add(msg);
-	    // -- start addition
+	    // -- start addition ************************************************************************ My answer starts here
 	    // keep a count to avoid calling message.size() as it's expensive
             messagesProcessed++;
 	    // if the number of messages processed has reach at least the MAX_BATCH_SIZE,
 	    // then archive the message, clear the message list, and set the messages process
 	    // back to zero
-	    if(messagesProcessed >= MAX_BATCH_SIZE){
-		    archiver.archiveMessages(messages, m -> m.getSubject().startsWith("A"));
-		    messages.clear();
-		    messagesProcessed = 0;
-	    }
+	        if(messagesProcessed >= MAX_BATCH_SIZE) {
+		        archiver.archiveMessages(messages, m -> m.getSubject().startsWith("A"));
+		        messages.clear();
+		        messagesProcessed = 0;
+	        }
         }
-	// if there are any messages remaining to be processed
-	// then archive them, and clear the message list
-	if(!messages.isEmpty()){
-		archiver.archiveMessages(messages, m -> m.getSubject().startsWith("A"));
+	    // if there are any messages remaining to be processed
+	    // then archive them, and clear the message list
+	    if(!messages.isEmpty()) {
+		    archiver.archiveMessages(messages, m -> m.getSubject().startsWith("A"));
         	messages.clear();
-	}
-	// -- end of addition
+	    }
+	// -- end of addition ***************************************************************************** My answer ends here
 
 	/*
          *  DO NOT CHANGE ANYTHING BELOW THIS LINE.
