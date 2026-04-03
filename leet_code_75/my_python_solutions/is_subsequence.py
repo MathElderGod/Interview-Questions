@@ -14,7 +14,7 @@
 # 0 <= t.length <= 104
 # s and t consist only of lowercase English letters.
 
-def isSubsequence(s: str, t):
+def isSubsequence(s, t):
         # get the string length of both s and t
         stringSLength = len(s)
         stringTLength = len(t)
