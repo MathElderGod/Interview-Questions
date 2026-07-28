@@ -90,3 +90,8 @@ merged_string = mergeAlternately(word1, word2)
 print("Test Case 3 Result  : " + merged_string)
 print("Test Case 3 Expected: " + "apbqcr")
 
+word1 = 'Notepad'
+word2 = 'Alex'
+merged_string = mergeAlternately(word1, word2)
+print("Test Case 3 Result  : " + merged_string)
+print("Test Case 3 Expected: " + "NAolteexpad")
