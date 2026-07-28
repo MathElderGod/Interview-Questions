@@ -31,55 +31,45 @@ def canPlaceFlowers(flowerbed, n):
             current_num_flowers += 1
     # get the total number of flowers expected in the flower bed
     total_flowers = current_num_flowers + flowers_to_plant
-    # if the total number of flowers exceeds max flowers return false
+    # base case, if there are too many flowers to plant return false
     if total_flowers > max_flowers:
         return False
-    # base case of n == 0
+    # base case, you can always plant 0 flowers
     elif n == 0:
         return True
-    # base case of flower bed length == 1
+    # base case, we have enough flowers to plant and flowerbed consists of one plot
     elif flowerbed_length == 1 and n <= max_flowers:
         return not flowerbed[0]
-    # other cases for flower bed length >= 2
+    # other cases for a flowerbed with more than 1 plot, and with enough flowers to plant
     else:
         # make a copy of the flowerbed
         current_flowerbed = flowerbed
-        # set a counter for the current flower section
+        # set a counter for the current flower plot
         i = 0
         # as long as we remain inside the flowerbed, enter
         while i < flowerbed_length:
-            # if there are flowers to plant, and we are at the start, and both the current and next flower sections are empty, then enter
-            if (flowers_to_plant != 0) and (i == 0) and (current_flowerbed[i] == current_flowerbed[i + 1]) and (current_flowerbed[i] == 0):
-                # update the current flowerbed
+            # if there are no more flowers to plant, break out the loop
+            if flowers_to_plant == 0:
+                break
+            # Case 1: we are at the start, and both the current and next flower plots are empty
+            first_plot_case = (i == 0) and (current_flowerbed[i] == current_flowerbed[i + 1]) and (current_flowerbed[i] == 0)
+            # Case 2: we are anywhere else between the beginning and the end of the flower bed, and the previous-current-next flower plots are empty
+            middle_plot_case = (0 < i < (flowerbed_length - 1)) and (current_flowerbed[i] == current_flowerbed[i - 1]) and (current_flowerbed[i] == current_flowerbed[i + 1]) and (current_flowerbed[i] == 0)
+            # Case 3: we are at the end, and both the current and previous flower plots are empty
+            last_plot_case = (i == flowerbed_length - 1) and (current_flowerbed[i] == current_flowerbed[i - 1]) and (current_flowerbed[i] == 0)
+            # if any of the above cases is true, then enter
+            if first_plot_case or middle_plot_case or last_plot_case:
+                # flower the current flower plot
                 current_flowerbed[i] = 1
                 # decrement flowers to plant
                 flowers_to_plant -= 1
-                # skip over 2 sections of the flower bed
+                # skip over 2 plots of the flower bed
                 i += 2
-            # else if there are flowers to plant, and we are at the end, and both the current and previous flower sections are empty, then enter
-            elif (flowers_to_plant != 0) and (i == flowerbed_length - 1) and (current_flowerbed[i] == current_flowerbed[i - 1]) and (current_flowerbed[i] == 0):
-                # update the current flowerbed
-                current_flowerbed[i] = 1
-                # decrement flowers to plant
-                flowers_to_plant -= 1
-                # skip over 2 sections of the flower bed
-                i += 2
-            # else if there are flowers to plant, we are anywhere else between the beginning and end of the flower bed, and the previous-current-next 
-            # flower sections are empty, then enter
-            elif (flowers_to_plant != 0) and (i > 0) and (i < flowerbed_length - 1) and (current_flowerbed[i] == current_flowerbed[i - 1]) and (current_flowerbed[i] == current_flowerbed[i + 1]) and (current_flowerbed[i] == 0):
-                # update the current flowerbed
-                current_flowerbed[i] = 1
-                # decrement flowers to plant
-                flowers_to_plant -= 1
-                # skip over 2 sections of the flower bed
-                i += 2
-            # else it is the case that the current flower section has a flower planted already, and cannot be planted or 
-            # there are flowers both in the previous and/or next flower sections and the current section cannot be planted
+            # else it is the case that the current flower plot already has a flower,
+            # or there are flowers in both the previous and/or next flower plots and the current plot cannot be flowered as a result
             else:
-                # skip over 1 section of the flower bed
+                # skip over 1 plot of the flower bed
                 i += 1
-        #print("Updated Flowerbed: ", current_flowerbed)
-        #print("Flowers left to plant: ", flowers_to_plant)
         # return true if there are no more flowers to plant, else returns false
         return not flowers_to_plant
 
