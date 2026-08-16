@@ -19,17 +19,16 @@
 # 1 <= arr.length <= 1000
 # -1000 <= arr[i] <= 1000
 def uniqueOccurrences(arr):
-    # get the length of the array
-    array_length = len(arr)
-    # make a dictionary that maps (key) direct number values and (values) number of occurences of those values
-    # ex: { Key --> 1: Value --> 3}, the number 1 (key) has 3 (value) occurences.
+    # make a dictionary that maps (key) number values and (values) number of occurences of those values
+    # ex: { Key --> 1: Value --> 3}, the number 1 (key) has 3 (value) occurrences.
     number_of_occurences_mapping = {}
-    # populate the dictionary with each number from array with the count set to 0
-    for i in range(array_length):
-        number_of_occurences_mapping.update({arr[i]: 0})
-    # increment the count for each key's value, if the key number is observed in the array
-    for i in range(array_length):
-        number_of_occurences_mapping[arr[i]] = number_of_occurences_mapping[arr[i]] + 1
+    # populate the dictionary
+    for number in arr:
+        # input the number from the array in the dictionary with the occurence count set to 0, if it does not exist
+        if number not in number_of_occurences_mapping:
+            number_of_occurences_mapping[number] = 0
+        # increment the occurrence count
+        number_of_occurences_mapping[number] += 1
     # make an empty list of occurences
     unique_occurences = []
     # iterate through each value in the dictionary, which is the total number of occurences of each key number
@@ -42,7 +41,6 @@ def uniqueOccurrences(arr):
             return False
     # otherwise, return true as we have truly seen a unique number of occurences per each key number
     return True
-
 arr = [1, 2, 2, 1, 1, 3]
 print("Current Array: ", arr) 
 print("Output: ", uniqueOccurrences(arr)) 
