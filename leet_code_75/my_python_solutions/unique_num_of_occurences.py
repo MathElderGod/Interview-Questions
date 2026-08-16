@@ -1,6 +1,5 @@
 # Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
 
-
 # Example 1:
 # Input: arr = [1,2,2,1,1,3]
 # Output: true
@@ -14,33 +13,33 @@
 # Input: arr = [-3,0,1,-3,1,1,1,-3,10,0]
 # Output: true
 
-
 # Constraints:
 # 1 <= arr.length <= 1000
 # -1000 <= arr[i] <= 1000
-def uniqueOccurrences(arr):
-    # make a dictionary that maps (key) number values and (values) number of occurences of those values
+def uniqueOccurrences(self, arr: List[int]) -> bool:
+    # make a dictionary that maps (key) number values and (values) number of occurrences of those values
     # ex: { Key --> 1: Value --> 3}, the number 1 (key) has 3 (value) occurrences.
-    number_of_occurences_mapping = {}
+    number_of_occurrences_mapping = {}
     # populate the dictionary
     for number in arr:
-        # input the number from the array in the dictionary with the occurence count set to 0, if it does not exist
-        if number not in number_of_occurences_mapping:
-            number_of_occurences_mapping[number] = 0
+        # input the number from the array in the dictionary with the occurrence count set to 0, if it does not exist
+        if number not in number_of_occurrences_mapping:
+            number_of_occurrences_mapping[number] = 0
         # increment the occurrence count
-        number_of_occurences_mapping[number] += 1
-    # make an empty list of occurences
-    unique_occurences = []
-    # iterate through each value in the dictionary, which is the total number of occurences of each key number
-    for total_occurences_of_current_value in number_of_occurences_mapping.values():
-        # if the total number of occurences is truly unique, then append the value to unique occurences array
-        if total_occurences_of_current_value not in unique_occurences:
-            unique_occurences.append(total_occurences_of_current_value)
-        # else, the total number of occurences has already been observed, so return false
+        number_of_occurrences_mapping[number] += 1
+    # make an empty list of occurrences
+    unique_occurrences = []
+    # iterate through each value in the dictionary, which is the total number of occurrences of each key number
+    for total_occurrences_of_current_value in number_of_occurrences_mapping.values():
+        # if the total number of occurrences is truly unique, then append the value to unique occurrences array
+        if total_occurrences_of_current_value not in unique_occurrences:
+            unique_occurrences.append(total_occurrences_of_current_value)
+        # else, the total number of occurrences has already been observed, so return false
         else:
             return False
-    # otherwise, return true as we have truly seen a unique number of occurences per each key number
+    # otherwise, return true as we have truly seen a unique number of occurrences per each key number
     return True
+
 arr = [1, 2, 2, 1, 1, 3]
 print("Current Array: ", arr) 
 print("Output: ", uniqueOccurrences(arr)) 
