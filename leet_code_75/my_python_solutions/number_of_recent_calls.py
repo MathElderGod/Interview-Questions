@@ -31,18 +31,16 @@ from collections import deque
 
 class RecentCounter:
     def __init__(self):
-        # define the lower bound of the current request t
-        # define the current requests by setting it to an empty lists
-        self.lower_bound_of_current_request = 0
-        self.current_requests = deque([])
+        # define the current requests by setting it to an empty deque
+        self.current_requests = deque()
 
     def ping(self, t: int) -> int:
-        # redetermine the current lower bound given the last 3000 milliseconds of the current request t
-        self.lower_bound_of_current_request = t - 3000
+        # determine the current lower bound given the last 3000 milliseconds of the current request t
+        lower_bound_of_current_request = t - 3000
         # populate the requests list by appending to the beginning of the queue
         self.current_requests.appendleft(t)
         # if the oldest request is less than the lower bound
-        while self.current_requests[-1] < self.lower_bound_of_current_request:
+        while self.current_requests[-1] < lower_bound_of_current_request:
             # remove the oldest request
             self.current_requests.pop()
         # return the current number of requests that are in the specified range [t - 3000, t]
