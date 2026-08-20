@@ -41,14 +41,10 @@ class RecentCounter:
         self.lower_bound_of_current_request = t - 3000
         # populate the requests list by appending to the beginning of the queue
         self.current_requests.appendleft(t)
-        # set the oldest request
-        oldest_request = self.current_requests.pop()
         # if the oldest request is less than the lower bound
-        while oldest_request < self.lower_bound_of_current_request:
-            # update the oldest request
-            oldest_request = self.current_requests.pop()
-        # the oldest is greater than or equals to the lower bound, so we need to add it back
-        self.current_requests.append(oldest_request)
+        while self.current_requests[-1] < self.lower_bound_of_current_request:
+            # remove the oldest request
+            self.current_requests.pop()
         # return the current number of requests that are in the specified range [t - 3000, t]
         return len(self.current_requests)
 
