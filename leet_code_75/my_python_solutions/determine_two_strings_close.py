@@ -35,7 +35,7 @@ def closeStrings(word1, word2):
     if len(word1) != len(word2):
         return False
     # CASE 1: All characters must match between word 1 and word 2
-    # use two hash maps, each containing characters and their frequencies from each word respectively
+    # use two hash maps, each containing characters and their frequencies from each word respectively 
     word1_char_frequency_map = {}
     word2_char_frequency_map = {}
     # populate word 1 {char:freq} hashmap
@@ -51,24 +51,11 @@ def closeStrings(word1, word2):
     if len(word1_char_frequency_map) != len(word2_char_frequency_map):
         return False
     # so far, word 1 and word 2, have the same chars but we need to verify the frequency counts
-    # CASE 2: All frequency counts must match between word 1 and word 2 frequencies
-    # create two hashmaps to map the frequencies from word 1 and word 2 to their counts
-    word1_frequency_count_map = {}
-    word2_frequency_count_map = {}
-    # populate word 1 {freq:freq_count} hashmap
-    for freq in word1_char_frequency_map.values():
-        word1_frequency_count_map[freq] = word1_frequency_count_map.get(freq, 0) + 1
-    # populate word 2 {freq:freq_count} hashmap, while simultaneously checking if the current freq is in {char:freq} hashmap for word 1
-    for freq in word2_char_frequency_map.values():
-        # the words are not close, if word 1 and word 2 dont have the same frequencies!
-        if freq not in word1_frequency_count_map:
-            return False
-        word2_frequency_count_map[freq] = word2_frequency_count_map.get(freq, 0) + 1
-    # the words are close iff their {freq:freq_count} hashmap's are the same
-    is_close = word1_frequency_count_map == word2_frequency_count_map
-    # return the result
+    # CASE 2: All frequencies must match between word 1 and word 2 frequencies
+    # use sorted, then compare the lists
+    is_close = (sorted(word1_char_frequency_map.values()) == sorted(word2_char_frequency_map.values()))
+    # return the result is_close
     return is_close
-
 
 test_cases = [
     ("abc", "bca"),
