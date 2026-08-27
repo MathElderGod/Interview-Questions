@@ -41,18 +41,16 @@ def closeStrings(word1, word2):
     # populate word 1 {char:freq} hashmap
     for char in word1:
         word1_char_frequency_map[char] = word1_char_frequency_map.get(char, 0) + 1
-    # populate word 2 {char:freq} hashmap, while simultaneously checking if the current char is in hashmap for word 1
+    # populate word 2 {char:freq} hashmap
     for char in word2:
-        # the words are not close, if word 1 and word 2 dont contain the same chars!
-        if char not in word1_char_frequency_map:
-            return False
         word2_char_frequency_map[char] = word2_char_frequency_map.get(char, 0) + 1
-    # both frequency maps need to be the same size, else they can not be close
-    if len(word1_char_frequency_map) != len(word2_char_frequency_map):
+    # both {char:freq} hashmap's need to have the same chars. (using sets to determine this)
+    is_close = (set(word1_char_frequency_map.keys()) == set(word2_char_frequency_map.keys()))
+    if (not is_close):
         return False
     # so far, word 1 and word 2, have the same chars but we need to verify the frequency counts
     # CASE 2: All frequencies must match between word 1 and word 2 frequencies
-    # use sorted, then compare the lists
+    # use sorted to sort the frequencies in word 1 and 2, then compare the lists
     is_close = (sorted(word1_char_frequency_map.values()) == sorted(word2_char_frequency_map.values()))
     # return the result is_close
     return is_close
