@@ -21,28 +21,23 @@
 # 1 <= nums1.length, nums2.length <= 1000
 # -1000 <= nums1[i], nums2[i] <= 1000
 def findDifference(nums1, nums2):
-    # make empty lists
-    answers = []
-    answers1 = []
-    answers2 = []
-    # get the length of nums1
-    nums1_length = len(nums1)
-    # get the length of nums2
-    nums2_length = len(nums2)
-    # for every element in nums 1
-    for i in range(nums1_length):
-        # if nums at the i-th index is not in nums2 and answers1 list, then append it to answers1
-        if nums1[i] not in nums2 and nums1[i] not in answers1:
-            answers1.append(nums1[i])
-    # for every element in nums 2
-    for j in range(nums2_length):
-        # if nums at the j-th index is not in nums1 and answers2 list, then append it to answers2
-        if nums2[j] not in nums1 and nums2[j] not in answers2:
-            answers2.append(nums2[j])
-    # append both lists to answers list
-    answers.append(answers1)
-    answers.append(answers2)
-    # return the answers
+    # uniqueness matters, in this case use a set or sets
+    # answer1 is a list of all distinct integers in nums1 which are not present in nums2.
+    answers1 = set(nums1)
+    # answer2 is a list of all distinct integers in nums2 which are not present in nums1.
+    answers2 = set(nums2)
+    for number in nums2:
+        # if the number from nums2 is seen in answers1, remove it from answers1
+        if number in answers1:
+            answers1.remove(number)
+    for number in nums1:
+        # if the number from nums1 is seen in answers2, remove it from answers2
+        if number in answers2:
+            answers2.remove(number)
+    # return a list answer of size 2 where:
+    # answer[0] is a list of all distinct integers in nums1 which are not present in nums2.
+    # answer[1] is a list of all distinct integers in nums2 which are not present in nums1.
+    answers = [list(answers1), list(answers2)]
     return answers
 
 nums1 = [1,2,3]

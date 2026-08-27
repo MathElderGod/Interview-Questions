@@ -16,28 +16,27 @@
 # Constraints:
 # 1 <= arr.length <= 1000
 # -1000 <= arr[i] <= 1000
-def uniqueOccurrences(self, arr: List[int]) -> bool:
-    # make a dictionary that maps (key) number values and (values) number of occurrences of those values
+def uniqueOccurrences(arr):
+    # basically using a hashmap and set together
+    # make a (hashmap) dictionary that maps (key) number values and (values) number of occurrences of those values
     # ex: { Key --> 1: Value --> 3}, the number 1 (key) has 3 (value) occurrences.
     number_of_occurrences_mapping = {}
     # populate the dictionary
     for number in arr:
-        # input the number from the array in the dictionary with the occurrence count set to 0, if it does not exist
-        if number not in number_of_occurrences_mapping:
-            number_of_occurrences_mapping[number] = 0
-        # increment the occurrence count
-        number_of_occurrences_mapping[number] += 1
-    # make an empty list of occurrences
-    unique_occurrences = []
-    # iterate through each value in the dictionary, which is the total number of occurrences of each key number
-    for total_occurrences_of_current_value in number_of_occurrences_mapping.values():
-        # if the total number of occurrences is truly unique, then append the value to unique occurrences array
-        if total_occurrences_of_current_value not in unique_occurrences:
-            unique_occurrences.append(total_occurrences_of_current_value)
-        # else, the total number of occurrences has already been observed, so return false
-        else:
+        # get the current number from the dictionary, if it doesnt exist, set it its frequency to 1,
+        # else increment its frequency by 1 if it exists
+        number_of_occurrences_mapping[number] = (
+            number_of_occurrences_mapping.get(number, 0) + 1
+        )
+    # make an empty set of occurrences
+    unique_occurrences = set()
+    # iterate through each value in the (hashmap) dictionary, which is the frequency of each number
+    for freq in number_of_occurrences_mapping.values():
+        # return false if the frequency has already been observed
+        if freq in unique_occurrences:
             return False
-    # otherwise, return true as we have truly seen a unique number of occurrences per each key number
+        unique_occurrences.add(freq)
+    # return true, as every frequency is unique
     return True
 
 arr = [1, 2, 2, 1, 1, 3]
